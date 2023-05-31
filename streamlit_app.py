@@ -26,18 +26,18 @@ def app():
             out_time=[]
             for date in dates:
                 df1 = df.loc[(df['Name'] == name) & (df['Date'] == date)]
-                # print(df1)
+              
                 in_out_times=df1.Time.values.tolist()
                 for item in in_out_times:
                     item_seconds=item.hour*3600+item.minute*60+item.second
-                    st.write(item)
+                    
                     if item < datetime.time(12, 0 , 0):
                         in_time.append(item_seconds)
                     else:
                         out_time.append(item_seconds)
             st.title(name)
-            st.write(in_time)
-            st.write(out_time)
+            
+            
             if len(in_time)>0:
                 hh,mm,ss=get_average(in_time)
                 st.write("Average Arrival Time",hh,":",mm,":",ss)
