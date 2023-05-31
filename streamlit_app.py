@@ -19,7 +19,7 @@ def app():
         df = pd.read_excel(uploaded_file, engine='xlrd')
         names=df.Name.unique().tolist()
         df['Date'] = pd.to_datetime(df['Date/Time'], format='%d/%m/%Y %H:%M:%S %p').dt.date
-        df['Time'] = pd.to_datetime(df['Date/Time']).dt.time
+        df['Time'] = pd.to_datetime(df['Date/Time'], format='%d/%m/%Y %H:%M:%S %p').dt.time
         dates=(df.Date.unique().tolist())
         for name in names:
             in_time =[]
