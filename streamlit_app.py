@@ -24,12 +24,13 @@ def app():
         for name in names:
             in_time =[]
             out_time=[]
-            for date in dates[0:3]:
+            for date in dates:
                 df1 = df.loc[(df['Name'] == name) & (df['Date'] == date)]
                 # print(df1)
                 in_out_times=df1.Time.values.tolist()
                 for item in in_out_times:
                     item_seconds=item.hour*3600+item.minute*60+item.second
+                    st.write(item)
                     if item < datetime.time(12, 0 , 0):
                         in_time.append(item_seconds)
                     else:
