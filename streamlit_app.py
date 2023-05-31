@@ -18,7 +18,7 @@ def app():
     if uploaded_file is not None:
         df = pd.read_excel(uploaded_file, engine='xlrd')
         names=df.Name.unique().tolist()
-        df['Date'] = pd.to_datetime(df['Date/Time']).dt.date
+        df['Date'] = pd.to_datetime(df['Date/Time'], dayfirst=True).dt.date
         df['Time'] = pd.to_datetime(df['Date/Time']).dt.time
         dates=(df.Date.unique().tolist())
         for name in names:
