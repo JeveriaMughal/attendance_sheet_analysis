@@ -35,9 +35,13 @@ def app():
                     else:
                         out_time.append(item_seconds)
             st.title(name)
-            hh,mm,ss=get_average(in_time)
-            st.write("Average Arrival Time",hh,":",mm,":",ss)
-            hh1,mm1,ss1=get_average(out_time)
-            st.write("Average Departure Time",hh1,":",mm1,":",ss1)
+            st.write(in_time)
+            st.write(out_time)
+            if len(in_time)>0:
+                hh,mm,ss=get_average(in_time)
+                st.write("Average Arrival Time",hh,":",mm,":",ss)
+            if len(out_time)>0:
+                hh1,mm1,ss1=get_average(out_time)
+                st.write("Average Departure Time",hh1,":",mm1,":",ss1)
 
 app()
