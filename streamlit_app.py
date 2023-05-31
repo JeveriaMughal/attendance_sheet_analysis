@@ -7,7 +7,7 @@ def get_average(time_series):
     sum=0;
     for value in time_series:
         sum=sum+value
-        average_in_time_seconds=sum/len(time_series)
+    average_in_time_seconds=sum/len(time_series)
     HH = int(average_in_time_seconds / 3600)
     MM = int((average_in_time_seconds - HH*3600) / 60)
     SS = int(average_in_time_seconds - HH*3600 - MM*60)
